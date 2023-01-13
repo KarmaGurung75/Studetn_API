@@ -1,0 +1,94 @@
+{
+    "sourceFile": "routes/course_route.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 19,
+            "patches": [
+                {
+                    "date": 1673176465759,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1673176472431,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,1 @@\n-import \n\\ No newline at end of file\n+import express from \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1673176478129,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,1 @@\n-import express from \n\\ No newline at end of file\n+import express from \"express\"\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1673176486557,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,2 @@\n-import express from \"express\"\n\\ No newline at end of file\n+import express from \"express\";\r\n+import \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1673176492528,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,2 +1,2 @@\n import express from \"express\";\r\n-import \n\\ No newline at end of file\n+import { addCourse } from \"../controller/course_controller\";\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1673176507167,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,2 +1,4 @@\n import express from \"express\";\r\n-import { addCourse } from \"../controller/course_controller\";\n\\ No newline at end of file\n+import { addCourse } from \"../controller/course_controller\";\r\n+\r\n+const \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1673176512273,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,4 @@\n import express from \"express\";\r\n import { addCourse } from \"../controller/course_controller\";\r\n \r\n-const \n\\ No newline at end of file\n+const router = \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1673176518414,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,4 @@\n import express from \"express\";\r\n import { addCourse } from \"../controller/course_controller\";\r\n \r\n-const router = \n\\ No newline at end of file\n+const router = express.Router()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1673176541482,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,6 @@\n import express from \"express\";\r\n import { addCourse } from \"../controller/course_controller\";\r\n \r\n-const router = express.Router()\n\\ No newline at end of file\n+const router = express.Router();\r\n+\r\n+router.\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1673176549649,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,5 +2,5 @@\n import { addCourse } from \"../controller/course_controller\";\r\n \r\n const router = express.Router();\r\n \r\n-router.\n\\ No newline at end of file\n+router.post()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1673176556228,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,5 +2,5 @@\n import { addCourse } from \"../controller/course_controller\";\r\n \r\n const router = express.Router();\r\n \r\n-router.post()\n\\ No newline at end of file\n+router.post('/addCourse')\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1673176563665,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,5 +2,5 @@\n import { addCourse } from \"../controller/course_controller\";\r\n \r\n const router = express.Router();\r\n \r\n-router.post('/addCourse')\n\\ No newline at end of file\n+router.post('/addCourse', addCourse)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1673176572158,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,5 +2,7 @@\n import { addCourse } from \"../controller/course_controller\";\r\n \r\n const router = express.Router();\r\n \r\n-router.post('/addCourse', addCourse)\n\\ No newline at end of file\n+router.post('/addCourse', addCourse);\r\n+\r\n+export \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1673176579546,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,5 +4,5 @@\n const router = express.Router();\r\n \r\n router.post('/addCourse', addCourse);\r\n \r\n-export \n\\ No newline at end of file\n+export default router\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1673176823824,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import express from \"express\";\r\n-import { addCourse } from \"../controller/course_controller\";\r\n+import { addCourse } from \"../controller/course_controller.js\";\r\n \r\n const router = express.Router();\r\n \r\n router.post('/addCourse', addCourse);\r\n \r\n\\ No newline at end of file\n-export default router\n+export default router;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1673176904019,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,7 +2,7 @@\n import { addCourse } from \"../controller/course_controller.js\";\r\n \r\n const router = express.Router();\r\n \r\n-router.post('/addCourse', addCourse);\r\n+router.post('/add', addCourse);\r\n \r\n export default router;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1673177293664,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,8 @@\n import express from \"express\";\r\n-import { addCourse } from \"../controller/course_controller.js\";\r\n+import {\r\n+    addCourse,\r\n+} from \"../controller/course_controller.js\";\r\n \r\n const router = express.Router();\r\n \r\n router.post('/add', addCourse);\r\n"
+                },
+                {
+                    "date": 1673177330003,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n import express from \"express\";\r\n import {\r\n     addCourse,\r\n+    getCourse \r\n } from \"../controller/course_controller.js\";\r\n \r\n const router = express.Router();\r\n \r\n"
+                },
+                {
+                    "date": 1673177337910,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,7 +6,7 @@\n \r\n const router = express.Router();\r\n \r\n router.post('/add', addCourse);\r\n+router.get()\r\n \r\n-\r\n export default router;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1673177437517,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import {\r\n     addCourse,\r\n     getCourse \r\n } from \"../controller/course_controller.js\";\r\n-import authe\r\n+import { authenticated } from \"../middleware/auth.js\";\r\n \r\n const router = express.Router();\r\n \r\n router.post('/add', addCourse);\r\n"
+                }
+            ],
+            "date": 1673176465758,
+            "name": "Commit-0",
+            "content": "import "
+        }
+    ]
+}

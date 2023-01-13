@@ -1,0 +1,22 @@
+{
+    "sourceFile": "routes/user_routes.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1673151481499,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1673151489758,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n const router = express.Router();\r\n \r\n router.post('/register', upload.single(\"avatar\"), register);\r\n router.post('/login', login)\r\n-router.get('/profile', authenticated,is userProfile)\r\n+router.get('/profile', authenticated, userProfile)\r\n router.put('/profile/update',\r\n     authenticated,\r\n     upload.single(\"avatar\"),\r\n     updateProfile)\r\n"
+                }
+            ],
+            "date": 1673151481499,
+            "name": "Commit-0",
+            "content": "\r\nimport express from \"express\";\r\nimport {\r\n    login,\r\n    register,\r\n    userProfile,\r\n    updateProfile\r\n} from \"../controller/user_controller.js\";\r\nimport upload from \"../controller/file.js\";\r\nimport { authenticated } from \"../middleware/auth.js\";\r\n\r\nconst router = express.Router();\r\n\r\nrouter.post('/register', upload.single(\"avatar\"), register);\r\nrouter.post('/login', login)\r\nrouter.get('/profile', authenticated,is userProfile)\r\nrouter.put('/profile/update',\r\n    authenticated,\r\n    upload.single(\"avatar\"),\r\n    updateProfile)\r\n\r\nexport default router;"
+        }
+    ]
+}

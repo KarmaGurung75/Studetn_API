@@ -1,0 +1,78 @@
+{
+    "sourceFile": "index.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 15,
+            "patches": [
+                {
+                    "date": 1673151143859,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1673151151249,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,10 @@\n import dotenv from \"dotenv\";\r\n import express from \"express\";\r\n+import morgan from \"morgan\";\r\n import ConnectDB from \"./config/database.js\"\r\n import userRoute from \"./routes/user_routes.js\"\r\n-impoer morgn\r\n+impoer morgan from \"mor\"\r\n \r\n \r\n const app = express();\r\n app.use(express.json());\r\n"
+                },
+                {
+                    "date": 1673151159400,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import express from \"express\";\r\n import morgan from \"morgan\";\r\n import ConnectDB from \"./config/database.js\"\r\n import userRoute from \"./routes/user_routes.js\"\r\n-impoer morgan from \"mor\"\r\n+import morgan from \"morgan\"\r\n \r\n \r\n const app = express();\r\n app.use(express.json());\r\n"
+                },
+                {
+                    "date": 1673151165494,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,8 +8,9 @@\n \r\n const app = express();\r\n app.use(express.json());\r\n \r\n+\r\n dotenv.config();\r\n \r\n ConnectDB();\r\n \r\n"
+                },
+                {
+                    "date": 1673151174262,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,10 +7,10 @@\n \r\n \r\n const app = express();\r\n app.use(express.json());\r\n+app.use(morgan())\r\n \r\n-\r\n dotenv.config();\r\n \r\n ConnectDB();\r\n \r\n"
+                },
+                {
+                    "date": 1673151192083,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,10 @@\n \r\n \r\n const app = express();\r\n app.use(express.json());\r\n-app.use(morgan())\r\n+app.use(express.ur')\r\n+app.use(morgan(\"dev\"))\r\n \r\n dotenv.config();\r\n \r\n ConnectDB();\r\n"
+                },
+                {
+                    "date": 1673151200684,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n \r\n \r\n const app = express();\r\n app.use(express.json());\r\n-app.use(express.ur')\r\n+app.use(express.urlencoded({extended:true}))\r\n app.use(morgan(\"dev\"))\r\n \r\n dotenv.config();\r\n \r\n"
+                },
+                {
+                    "date": 1673151236294,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n \r\n const app = express();\r\n app.use(express.json());\r\n app.use(express.urlencoded({extended:true}))\r\n-app.use(morgan(\"dev\"))\r\n+app.use(morgan('dev'))\r\n \r\n dotenv.config();\r\n \r\n ConnectDB();\r\n"
+                },
+                {
+                    "date": 1673151251154,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,11 +2,11 @@\n import express from \"express\";\r\n import morgan from \"morgan\";\r\n import ConnectDB from \"./config/database.js\"\r\n import userRoute from \"./routes/user_routes.js\"\r\n-import morgan from \"morgan\"\r\n \r\n \r\n+\r\n const app = express();\r\n app.use(express.json());\r\n app.use(express.urlencoded({extended:true}))\r\n app.use(morgan('dev'))\r\n"
+                },
+                {
+                    "date": 1673156243553,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,8 +16,9 @@\n ConnectDB();\r\n \r\n app.use(\"/user\", userRoute);\r\n \r\n+\r\n app.get(\"/\", (req, res)=>{\r\n     res.send(`<h1> server is running for API</h1>`);\r\n })\r\n \r\n"
+                },
+                {
+                    "date": 1673176593889,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,8 +15,9 @@\n \r\n ConnectDB();\r\n \r\n app.use(\"/user\", userRoute);\r\n+app.use\r\n \r\n \r\n app.get(\"/\", (req, res)=>{\r\n     res.send(`<h1> server is running for API</h1>`);\r\n"
+                },
+                {
+                    "date": 1673176601631,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,30 @@\n+import dotenv from \"dotenv\";\r\n+import express from \"express\";\r\n+import morgan from \"morgan\";\r\n+import ConnectDB from \"./config/database.js\"\r\n+import userRoute from \"./routes/user_routes.js\"\r\n+\r\n+\r\n+\r\n+const app = express();\r\n+app.use(express.json());\r\n+app.use(express.urlencoded({extended:true}))\r\n+app.use(morgan('dev'))\r\n+\r\n+dotenv.config();\r\n+\r\n+ConnectDB();\r\n+\r\n+app.use(\"/user\", userRoute);\r\n+app.use(\"/course\")\r\n+\r\n+\r\n+app.get(\"/\", (req, res)=>{\r\n+    res.send(`<h1> server is running for API</h1>`);\r\n+})\r\n+\r\n+const PORT = process.env.Port\r\n+\r\n+app.listen(PORT, () => {\r\n+    console.log(`Server is running at port: ${PORT}`)\r\n+})\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1673176610965,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,38 +5,9 @@\n import userRoute from \"./routes/user_routes.js\"\r\n \r\n \r\n \r\n-const app = express();\r\n-app.use(express.json());\r\n-app.use(express.urlencoded({extended:true}))\r\n-app.use(morgan('dev'))\r\n \r\n-dotenv.config();\r\n-\r\n-ConnectDB();\r\n-\r\n-app.use(\"/user\", userRoute);\r\n-app.use(\"/course\")\r\n-\r\n-\r\n-app.get(\"/\", (req, res)=>{\r\n-    res.send(`<h1> server is running for API</h1>`);\r\n-})\r\n-\r\n-const PORT = process.env.Port\r\n-\r\n-app.listen(PORT, () => {\r\n-    console.log(`Server is running at port: ${PORT}`)\r\n-})\n-import dotenv from \"dotenv\";\r\n-import express from \"express\";\r\n-import morgan from \"morgan\";\r\n-import ConnectDB from \"./config/database.js\"\r\n-import userRoute from \"./routes/user_routes.js\"\r\n-\r\n-\r\n-\r\n const app = express();\r\n app.use(express.json());\r\n app.use(express.urlencoded({extended:true}))\r\n app.use(morgan('dev'))\r\n@@ -45,9 +16,9 @@\n \r\n ConnectDB();\r\n \r\n app.use(\"/user\", userRoute);\r\n-app.use\r\n+app.use(\"/course\");\r\n \r\n \r\n app.get(\"/\", (req, res)=>{\r\n     res.send(`<h1> server is running for API</h1>`);\r\n"
+                },
+                {
+                    "date": 1673176618301,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,12 +2,12 @@\n import express from \"express\";\r\n import morgan from \"morgan\";\r\n import ConnectDB from \"./config/database.js\"\r\n import userRoute from \"./routes/user_routes.js\"\r\n+import \r\n \r\n \r\n \r\n-\r\n const app = express();\r\n app.use(express.json());\r\n app.use(express.urlencoded({extended:true}))\r\n app.use(morgan('dev'))\r\n"
+                },
+                {
+                    "date": 1673176624246,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import express from \"express\";\r\n import morgan from \"morgan\";\r\n import ConnectDB from \"./config/database.js\"\r\n import userRoute from \"./routes/user_routes.js\"\r\n-import courseRoute\r\n+import courseRoute \r\n \r\n \r\n \r\n const app = express();\r\n"
+                },
+                {
+                    "date": 1673176641741,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import express from \"express\";\r\n import morgan from \"morgan\";\r\n import ConnectDB from \"./config/database.js\"\r\n import userRoute from \"./routes/user_routes.js\"\r\n-import courseRoute from \"./routes/\"\r\n+import courseRoute from \"./routes/course_route\"\r\n \r\n \r\n \r\n const app = express();\r\n"
+                }
+            ],
+            "date": 1673151143859,
+            "name": "Commit-0",
+            "content": "import dotenv from \"dotenv\";\r\nimport express from \"express\";\r\nimport ConnectDB from \"./config/database.js\"\r\nimport userRoute from \"./routes/user_routes.js\"\r\nimpoer morgn\r\n\r\n\r\nconst app = express();\r\napp.use(express.json());\r\n\r\ndotenv.config();\r\n\r\nConnectDB();\r\n\r\napp.use(\"/user\", userRoute);\r\n\r\napp.get(\"/\", (req, res)=>{\r\n    res.send(`<h1> server is running for API</h1>`);\r\n})\r\n\r\nconst PORT = process.env.Port\r\n\r\napp.listen(PORT, () => {\r\n    console.log(`Server is running at port: ${PORT}`)\r\n})"
+        }
+    ]
+}

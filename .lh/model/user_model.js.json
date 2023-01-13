@@ -1,0 +1,58 @@
+{
+    "sourceFile": "model/user_model.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 10,
+            "patches": [
+                {
+                    "date": 1673151014105,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1673156380775,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,8 +17,12 @@\n         },\r\n         course: {\r\n             type: Array\r\n         },\r\n+          books: [{\r\n+        type: mongoose.Schema.Types.ObjectId,\r\n+        ref : 'Book'\r\n+    }]\r\n \r\n         username: {\r\n             type: String,\r\n             required: [true, \"Please enter username\"],\r\n"
+                },
+                {
+                    "date": 1673156387876,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n         },\r\n         course: {\r\n             type: Array\r\n         },\r\n-          books: [{\r\n+        : [{\r\n         type: mongoose.Schema.Types.ObjectId,\r\n         ref : 'Book'\r\n     }]\r\n \r\n"
+                },
+                {
+                    "date": 1673156394342,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,12 +14,12 @@\n         },\r\n         batch: {\r\n             type: String\r\n         },\r\n-        course: {\r\n-            type: Array\r\n-        },\r\n-        : [{\r\n+        // course: {\r\n+        //     type: Array\r\n+        // },\r\n+        course: [{\r\n         type: mongoose.Schema.Types.ObjectId,\r\n         ref : 'Book'\r\n     }]\r\n \r\n"
+                },
+                {
+                    "date": 1673156400950,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,10 +19,10 @@\n         //     type: Array\r\n         // },\r\n         course: [{\r\n         type: mongoose.Schema.Types.ObjectId,\r\n-        ref : 'Book'\r\n-    }]\r\n+        ref : ''\r\n+    }],\r\n \r\n         username: {\r\n             type: String,\r\n             required: [true, \"Please enter username\"],\r\n"
+                },
+                {
+                    "date": 1673156414485,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n         //     type: Array\r\n         // },\r\n         course: [{\r\n         type: mongoose.Schema.Types.ObjectId,\r\n-        ref : ''\r\n+        ref : 'Course'\r\n     }],\r\n \r\n         username: {\r\n             type: String,\r\n"
+                },
+                {
+                    "date": 1673156422683,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n         // },\r\n         course: [{\r\n         type: mongoose.Schema.Types.ObjectId,\r\n         ref : 'Course'\r\n-    }],\r\n+    ],\r\n \r\n         username: {\r\n             type: String,\r\n             required: [true, \"Please enter username\"],\r\n"
+                },
+                {
+                    "date": 1673178388355,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,18 +11,19 @@\n         lastName: {\r\n             type: String,\r\n             required: [true, \"Please enter last name\"],\r\n         },\r\n-        batch: {\r\n-            type: String\r\n-        },\r\n+        course: [{\r\n+        type: mongoose.Schema.Types.ObjectId,\r\n+            ref: 'Course'\r\n+        }],\r\n         // course: {\r\n         //     type: Array\r\n         // },\r\n         course: [{\r\n         type: mongoose.Schema.Types.ObjectId,\r\n-        ref : 'Course'\r\n-    ],\r\n+            ref: 'Course'\r\n+        }],\r\n \r\n         username: {\r\n             type: String,\r\n             required: [true, \"Please enter username\"],\r\n"
+                },
+                {
+                    "date": 1673178397566,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,11 +11,11 @@\n         lastName: {\r\n             type: String,\r\n             required: [true, \"Please enter last name\"],\r\n         },\r\n-        course: [{\r\n+        batch: [{\r\n         type: mongoose.Schema.Types.ObjectId,\r\n-            ref: 'Course'\r\n+            ref: ''\r\n         }],\r\n         // course: {\r\n         //     type: Array\r\n         // },\r\n"
+                },
+                {
+                    "date": 1673178403336,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n         lastName: {\r\n             type: String,\r\n             required: [true, \"Please enter last name\"],\r\n         },\r\n-        batch: [{\r\n+        batch: {\r\n         type: mongoose.Schema.Types.ObjectId,\r\n             ref: 'Batch'\r\n         }],\r\n         // course: {\r\n"
+                },
+                {
+                    "date": 1673181010952,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -66,5 +66,5 @@\n     })\r\n }\r\n \r\n export default mongoose.model(\"User\", UserSchema);\r\n-export default mo\n\\ No newline at end of file\n+export default mongoose.mo'\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1673151014105,
+            "name": "Commit-0",
+            "content": "import mongoose from \"mongoose\";\r\nimport bcrypt from \"bcryptjs\";\r\nimport Jwt  from \"jsonwebtoken\";\r\n\r\nconst UserSchema = new mongoose.Schema(\r\n    {\r\n        firstName: {\r\n            type: String,\r\n            required: [true, \"Please enter first name\"],\r\n        },\r\n        lastName: {\r\n            type: String,\r\n            required: [true, \"Please enter last name\"],\r\n        },\r\n        batch: {\r\n            type: String\r\n        },\r\n        course: {\r\n            type: Array\r\n        },\r\n\r\n        username: {\r\n            type: String,\r\n            required: [true, \"Please enter username\"],\r\n            unique: true\r\n\r\n        },\r\n        avatar: {\r\n            type: String,\r\n        },\r\n\r\n        password: {\r\n            type: String,\r\n            required: [true, \"Please enter password\"],\r\n            maxLength: [8, \"Password must be at least 8 characters\"],\r\n            select: false,\r\n        },\r\n\r\n        createAt: {\r\n            type: Date,\r\n            default: Date.now(),\r\n        }\r\n    });\r\n\r\nUserSchema.pre(\"save\", async function (next) {\r\n    if (!this.isModified(\"password\")) {\r\n        next();\r\n    }\r\n    const salt = await bcrypt.genSalt(10);\r\n    this.password = await bcrypt.hash(this.password, salt)\r\n});\r\n\r\n\r\nUserSchema.methods.comparePassword = async function (enteredPassword) {\r\n    return await bcrypt.compare(enteredPassword,this.password)\r\n}\r\n// Add Token\r\nUserSchema.methods.getSignedJwtToken = function () {\r\n    return Jwt.sign({ id: this._id }, process.env.JWT_SECRET, {\r\n        expiresIn: \"1d\"\r\n    })\r\n}\r\n\r\nexport default mongoose.model(\"User\", UserSchema);"
+        }
+    ]
+}

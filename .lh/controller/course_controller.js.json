@@ -1,0 +1,66 @@
+{
+    "sourceFile": "controller/course_controller.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 12,
+            "patches": [
+                {
+                    "date": 1673156688152,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1673156709031,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,2 +1,3 @@\n \r\n \r\n+export \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1673156714540,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,3 @@\n \r\n \r\n-export \n\\ No newline at end of file\n+export const \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1673156719680,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,3 @@\n \r\n \r\n-export const \n\\ No newline at end of file\n+export const course\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1673156726635,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,3 @@\n \r\n \r\n-export const course\n\\ No newline at end of file\n+export const getourse\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1673156758684,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,3 @@\n \r\n \r\n-export const getourse\n\\ No newline at end of file\n+export const getCourse = async \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1673156766047,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,5 @@\n \r\n \r\n-export const getCourse = async \n\\ No newline at end of file\n+export const getCourse = async (req, res) => {\r\n+    \r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1673175712430,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n \r\n \r\n-export const getCourse = async (req, res) => {\r\n+export const Course = async (req, res) => {\r\n     \r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1673175723319,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n \r\n \r\n-export const Course = async (req, res) => {\r\n+export const addCourse = async (req, res) => {\r\n     \r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1673175744932,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,43 @@\n \r\n \r\n export const addCourse = async (req, res) => {\r\n     \r\n-}\n\\ No newline at end of file\n+}\r\n+\r\n+export const AddDetails = async (req, res) => {\r\n+  try {\r\n+    const { foodTitle, foodDescription } = req.body;\r\n+    if (!foodTitle || !foodDescription) {\r\n+      return res.status(400).json({\r\n+        success: false,\r\n+        message: \"Filled can't be empty!\",\r\n+      });\r\n+    }\r\n+    const foodImage = req.file.filename;\r\n+\r\n+    const exist = await Food.findOne({ foodTitle });\r\n+    if (exist) {\r\n+      return res.status(400).json({\r\n+        success: false,\r\n+        message: \"Name must be different!\",\r\n+      });\r\n+    }\r\n+\r\n+    const food = await Food.create({\r\n+      foodTitle,\r\n+      foodDescription,\r\n+      foodImage: foodImage,\r\n+    });\r\n+\r\n+    res.status(200).json({\r\n+      success: true,\r\n+      message: \"Food added Successfully!\",\r\n+      data: food,\r\n+    });\r\n+  } catch (error) {\r\n+    return res.status(500).json({\r\n+      success: false,\r\n+      message: error.message,\r\n+    });\r\n+  }\r\n+};\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1673175758406,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,9 @@\n \r\n \r\n export const addCourse = async (req, res) => {\r\n+\r\n+    try\r\n     \r\n }\r\n \r\n export const AddDetails = async (req, res) => {\r\n"
+                },
+                {
+                    "date": 1673175781138,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,42 +8,4 @@\n         \r\n     }\r\n     \r\n }\r\n-\r\n-export const AddDetails = async (req, res) => {\r\n-  try {\r\n-    const { foodTitle, foodDescription } = req.body;\r\n-    if (!foodTitle || !foodDescription) {\r\n-      return res.status(400).json({\r\n-        success: false,\r\n-        message: \"Filled can't be empty!\",\r\n-      });\r\n-    }\r\n-    const foodImage = req.file.filename;\r\n-\r\n-    const exist = await Food.findOne({ foodTitle });\r\n-    if (exist) {\r\n-      return res.status(400).json({\r\n-        success: false,\r\n-        message: \"Name must be different!\",\r\n-      });\r\n-    }\r\n-\r\n-    const food = await Food.create({\r\n-      foodTitle,\r\n-      foodDescription,\r\n-      foodImage: foodImage,\r\n-    });\r\n-\r\n-    res.status(200).json({\r\n-      success: true,\r\n-      message: \"Food added Successfully!\",\r\n-      data: food,\r\n-    });\r\n-  } catch (error) {\r\n-    return res.status(500).json({\r\n-      success: false,\r\n-      message: error.message,\r\n-    });\r\n-  }\r\n-};\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1673175946888,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \r\n export const addCourse = async (req, res) => {\r\n \r\n     try {\r\n-        const \r\n+        const {}\r\n         \r\n     } catch (error) {\r\n         \r\n     }\r\n"
+                }
+            ],
+            "date": 1673156688152,
+            "name": "Commit-0",
+            "content": "\r\n\r\n"
+        }
+    ]
+}

@@ -1,0 +1,178 @@
+{
+    "sourceFile": "controller/batch_controller.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 40,
+            "patches": [
+                {
+                    "date": 1673177651272,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1673177658048,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-import Course from \"../model/course.js\";\r\n+import batch from \"../model/course.js\";\r\n \r\n \r\n // Add new Course\r\n export const addCourse = async (req, res) => {\r\n"
+                },
+                {
+                    "date": 1673177668687,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-import batch from \"../model/course.js\";\r\n+import Batch from \"../model/course.js\";\r\n \r\n \r\n // Add new Course\r\n export const addCourse = async (req, res) => {\r\n@@ -11,9 +11,9 @@\n                 message: \"Fill all the Field\"\r\n             });\r\n         }\r\n \r\n-        const exist = await Course.findOne({ courseName });\r\n+        const exist = await Batch.findOne({ courseName });\r\n         if (exist) {\r\n             return res.status(400).json({\r\n                 success: false,\r\n                 message: \"Course already exist\"\r\n"
+                },
+                {
+                    "date": 1673177687015,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-import Batch from \"../model/course.js\";\r\n+import Batch from \"../model/\";\r\n \r\n \r\n // Add new Course\r\n export const addCourse = async (req, res) => {\r\n"
+                },
+                {
+                    "date": 1673177720171,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,28 +1,28 @@\n-import Batch from \"../model/\";\r\n+import Batch from \"../model/batch.js\";\r\n \r\n \r\n // Add new Course\r\n export const addCourse = async (req, res) => {\r\n     try {\r\n-        const { courseName } = req.body;\r\n-        if (!courseName) {\r\n+        const { courseName: batchName } = req.body;\r\n+        if (!batchName) {\r\n             return res.status(400).json({\r\n                 success: true,\r\n                 message: \"Fill all the Field\"\r\n             });\r\n         }\r\n \r\n-        const exist = await Batch.findOne({ courseName });\r\n+        const exist = await Batch.findOne({ courseName: batchName });\r\n         if (exist) {\r\n             return res.status(400).json({\r\n                 success: false,\r\n                 message: \"Course already exist\"\r\n             })\r\n         }\r\n \r\n         const course = await Course.create({\r\n-            courseName,\r\n+            courseName: batchName,\r\n         })\r\n \r\n         res.status(200).json({\r\n             success: true,\r\n"
+                },
+                {
+                    "date": 1673177727294,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n \r\n // Add new Course\r\n export const addCourse = async (req, res) => {\r\n     try {\r\n-        const { courseName: batchName } = req.body;\r\n+        const { batchName } = req.body;\r\n         if (!batchName) {\r\n             return res.status(400).json({\r\n                 success: true,\r\n                 message: \"Fill all the Field\"\r\n"
+                },
+                {
+                    "date": 1673177735322,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n                 message: \"Fill all the Field\"\r\n             });\r\n         }\r\n \r\n-        const exist = await Batch.findOne({ courseName: batchName });\r\n+        const exist = await Batch.findOne({ batchName });\r\n         if (exist) {\r\n             return res.status(400).json({\r\n                 success: false,\r\n                 message: \"Course already exist\"\r\n"
+                },
+                {
+                    "date": 1673177743821,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n                 message: \"Course already exist\"\r\n             })\r\n         }\r\n \r\n-        const course = await Course.create({\r\n+        const course = await Batch.create({\r\n             courseName: batchName,\r\n         })\r\n \r\n         res.status(200).json({\r\n"
+                },
+                {
+                    "date": 1673177750701,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import Batch from \"../model/batch.js\";\r\n \r\n \r\n-// Add new Course\r\n+// Add new Batch\r\n export const addCourse = async (req, res) => {\r\n     try {\r\n         const { batchName } = req.body;\r\n         if (!batchName) {\r\n"
+                },
+                {
+                    "date": 1673177756941,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import Batch from \"../model/batch.js\";\r\n \r\n \r\n // Add new Batch\r\n-export const addCourse = async (req, res) => {\r\n+export const addBatch = async (req, res) => {\r\n     try {\r\n         const { batchName } = req.body;\r\n         if (!batchName) {\r\n             return res.status(400).json({\r\n"
+                },
+                {
+                    "date": 1673177769897,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n                 message: \"Course already exist\"\r\n             })\r\n         }\r\n \r\n-        const course = await Batch.create({\r\n+        const  = await Batch.create({\r\n             courseName: batchName,\r\n         })\r\n \r\n         res.status(200).json({\r\n"
+                },
+                {
+                    "date": 1673177788232,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,10 +19,10 @@\n                 message: \"Course already exist\"\r\n             })\r\n         }\r\n \r\n-        const  = await Batch.create({\r\n-            courseName: batchName,\r\n+        const batch = await Batch.create({\r\n+            batchName,\r\n         })\r\n \r\n         res.status(200).json({\r\n             success: true,\r\n"
+                },
+                {
+                    "date": 1673177799115,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,10 +25,10 @@\n         })\r\n \r\n         res.status(200).json({\r\n             success: true,\r\n-            message: \"Course Added Successfully\",\r\n-            data: course\r\n+            message: \"Added Successfully\",\r\n+            data: batch\r\n \r\n         })\r\n         \r\n     } catch (error) {\r\n"
+                },
+                {
+                    "date": 1673177806945,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n         const exist = await Batch.findOne({ batchName });\r\n         if (exist) {\r\n             return res.status(400).json({\r\n                 success: false,\r\n-                message: \"Course already exist\"\r\n+                message: \"Batch already exist\"\r\n             })\r\n         }\r\n \r\n         const batch = await Batch.create({\r\n@@ -25,9 +25,9 @@\n         })\r\n \r\n         res.status(200).json({\r\n             success: true,\r\n-            message: \"Added Successfully\",\r\n+            message: \"Batch Added Successfully\",\r\n             data: batch\r\n \r\n         })\r\n         \r\n"
+                },
+                {
+                    "date": 1673177834532,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,9 +41,9 @@\n     \r\n }\r\n \r\n \r\n-// Get all courses\r\n+// Get all Batch\r\n \r\n export const getCourse = async (req, res) => {\r\n     try {\r\n         const course = await Course.find();\r\n"
+                },
+                {
+                    "date": 1673177846714,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,10 +42,9 @@\n }\r\n \r\n \r\n // Get all Batch\r\n-\r\n-export const getCourse = async (req, res) => {\r\n+export const getBatch = async (req, res) => {\r\n     try {\r\n         const course = await Course.find();\r\n         if (!course) {\r\n             return res.status(400).json({\r\n"
+                },
+                {
+                    "date": 1673177854246,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,10 +44,10 @@\n \r\n // Get all Batch\r\n export const getBatch = async (req, res) => {\r\n     try {\r\n-        const course = await Course.find();\r\n-        if (!course) {\r\n+        const batch = await Course.find();\r\n+        if (!batch) {\r\n             return res.status(400).json({\r\n                 success: true,\r\n                 message: \"Course Does not exist\"\r\n             })\r\n@@ -55,9 +55,9 @@\n \r\n         res.status(200).json({\r\n             success: true,\r\n             message: \"Course Details\",\r\n-            data: course\r\n+            data: batch\r\n         })\r\n     } catch (error) {\r\n         return res.status(500).json({\r\n             success: false,\r\n"
+                },
+                {
+                    "date": 1673177865987,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n \r\n // Get all Batch\r\n export const getBatch = async (req, res) => {\r\n     try {\r\n-        const batch = await Course.find();\r\n+        const batch = await Batch.find();\r\n         if (!batch) {\r\n             return res.status(400).json({\r\n                 success: true,\r\n                 message: \"Course Does not exist\"\r\n"
+                },
+                {
+                    "date": 1673177892650,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,15 +48,15 @@\n         const batch = await Batch.find();\r\n         if (!batch) {\r\n             return res.status(400).json({\r\n                 success: true,\r\n-                message: \"Course Does not exist\"\r\n+                message: \"Batch Does not exist\"\r\n             })\r\n         }\r\n \r\n         res.status(200).json({\r\n             success: true,\r\n-            message: \"Course Details\",\r\n+            message: \" Details\",\r\n             data: batch\r\n         })\r\n     } catch (error) {\r\n         return res.status(500).json({\r\n"
+                },
+                {
+                    "date": 1673190980126,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n \r\n // Get all Batch\r\n export const getBatch = async (req, res) => {\r\n     try {\r\n-        const batch = await Batch.find();\r\n+        const batch = await Batch.find().populate('course');\r\n         if (!batch) {\r\n             return res.status(400).json({\r\n                 success: true,\r\n                 message: \"Batch Does not exist\"\r\n@@ -54,9 +54,9 @@\n         }\r\n \r\n         res.status(200).json({\r\n             success: true,\r\n-            message: \" Details\",\r\n+            message: \"Batch Details\",\r\n             data: batch\r\n         })\r\n     } catch (error) {\r\n         return res.status(500).json({\r\n"
+                },
+                {
+                    "date": 1673190985609,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n \r\n // Get all Batch\r\n export const getBatch = async (req, res) => {\r\n     try {\r\n-        const batch = await Batch.find().populate('course');\r\n+        const batch = await Batch.find().populate('user');\r\n         if (!batch) {\r\n             return res.status(400).json({\r\n                 success: true,\r\n                 message: \"Batch Does not exist\"\r\n"
+                },
+                {
+                    "date": 1673191091867,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n \r\n // Get all Batch\r\n export const getBatch = async (req, res) => {\r\n     try {\r\n-        const batch = await Batch.find().populate('user');\r\n+        const batch = await Batch.findById().populate('user');\r\n         if (!batch) {\r\n             return res.status(400).json({\r\n                 success: true,\r\n                 message: \"Batch Does not exist\"\r\n"
+                },
+                {
+                    "date": 1673191097151,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n \r\n // Get all Batch\r\n export const getBatch = async (req, res) => {\r\n     try {\r\n-        const batch = await Batch.findById().populate('user');\r\n+        const batch = await Batch.findById(req.pa).populate('user');\r\n         if (!batch) {\r\n             return res.status(400).json({\r\n                 success: true,\r\n                 message: \"Batch Does not exist\"\r\n"
+                },
+                {
+                    "date": 1673191116305,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n \r\n // Get all Batch\r\n export const getBatch = async (req, res) => {\r\n     try {\r\n-        const batch = await Batch.findById(req.pa).populate('user');\r\n+        const batch = await Batch.findById(req..id).populate('user');\r\n         if (!batch) {\r\n             return res.status(400).json({\r\n                 success: true,\r\n                 message: \"Batch Does not exist\"\r\n"
+                },
+                {
+                    "date": 1673191138123,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n \r\n // Get all Batch\r\n export const getBatch = async (req, res) => {\r\n     try {\r\n-        const batch = await Batch.findById(req..id).populate('user');\r\n+        const batch = await Batch.findById(req.batch.id).populate('user');\r\n         if (!batch) {\r\n             return res.status(400).json({\r\n                 success: true,\r\n                 message: \"Batch Does not exist\"\r\n"
+                },
+                {
+                    "date": 1673191159970,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,8 +51,9 @@\n                 success: true,\r\n                 message: \"Batch Does not exist\"\r\n             })\r\n         }\r\n+        \r\n \r\n         res.status(200).json({\r\n             success: true,\r\n             message: \"Batch Details\",\r\n"
+                },
+                {
+                    "date": 1673191169770,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,10 +51,12 @@\n                 success: true,\r\n                 message: \"Batch Does not exist\"\r\n             })\r\n         }\r\n+\r\n         \r\n \r\n+\r\n         res.status(200).json({\r\n             success: true,\r\n             message: \"Batch Details\",\r\n             data: batch\r\n"
+                },
+                {
+                    "date": 1673191175950,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,10 +51,18 @@\n                 success: true,\r\n                 message: \"Batch Does not exist\"\r\n             })\r\n         }\r\n-\r\n         \r\n+        const userInfo = {\r\n+            id: user._id,\r\n+            firstName: user.firstName,\r\n+            lastName: user.lastName,\r\n+            batch: user.batch,\r\n+            course: user.course,\r\n+            username: user.username,\r\n+            avatar: user.avatar\r\n+        }\r\n \r\n \r\n         res.status(200).json({\r\n             success: true,\r\n"
+                },
+                {
+                    "date": 1673191183348,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -52,9 +52,9 @@\n                 message: \"Batch Does not exist\"\r\n             })\r\n         }\r\n         \r\n-        const userInfo = {\r\n+        const batchInfo = {\r\n             id: user._id,\r\n             firstName: user.firstName,\r\n             lastName: user.lastName,\r\n             batch: user.batch,\r\n"
+                },
+                {
+                    "date": 1673191191053,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -53,9 +53,9 @@\n             })\r\n         }\r\n         \r\n         const batchInfo = {\r\n-            id: user._id,\r\n+            id: batch._id,\r\n             firstName: user.firstName,\r\n             lastName: user.lastName,\r\n             batch: user.batch,\r\n             course: user.course,\r\n"
+                },
+                {
+                    "date": 1673191199591,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,14 +54,10 @@\n         }\r\n         \r\n         const batchInfo = {\r\n             id: batch._id,\r\n-            firstName: user.firstName,\r\n-            lastName: user.lastName,\r\n             batch: user.batch,\r\n-            course: user.course,\r\n-            username: user.username,\r\n-            avatar: user.avatar\r\n+            \r\n         }\r\n \r\n \r\n         res.status(200).json({\r\n"
+                },
+                {
+                    "date": 1673191207804,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,9 +54,9 @@\n         }\r\n         \r\n         const batchInfo = {\r\n             id: batch._id,\r\n-            batch: user.batch,\r\n+            batchName: user.batch,\r\n             \r\n         }\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1673191215328,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -62,9 +62,9 @@\n \r\n         res.status(200).json({\r\n             success: true,\r\n             message: \"Batch Details\",\r\n-            data: batch\r\n+            data: batchInfo\r\n         })\r\n     } catch (error) {\r\n         return res.status(500).json({\r\n             success: false,\r\n"
+                },
+                {
+                    "date": 1673191228201,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,16 +51,10 @@\n                 success: true,\r\n                 message: \"Batch Does not exist\"\r\n             })\r\n         }\r\n-        \r\n-        const batchInfo = {\r\n-            id: batch._id,\r\n-            batchName: user.batch,\r\n-            \r\n-        }\r\n+    \r\n \r\n-\r\n         res.status(200).json({\r\n             success: true,\r\n             message: \"Batch Details\",\r\n             data: batchInfo\r\n"
+                },
+                {
+                    "date": 1673191252417,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n \r\n // Get all Batch\r\n export const getBatch = async (req, res) => {\r\n     try {\r\n-        const batch = await Batch.findById(req.batch.id).populate('user');\r\n+        const batch = await Batch.findById(req.params.id).populate('user');\r\n         if (!batch) {\r\n             return res.status(400).json({\r\n                 success: true,\r\n                 message: \"Batch Does not exist\"\r\n"
+                },
+                {
+                    "date": 1673191292453,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n \r\n // Get all Batch\r\n export const getBatch = async (req, res) => {\r\n     try {\r\n-        const batch = await Batch.findById(req.params.id).populate('user');\r\n+        const batch = await Batch.findById(req.params.batch_id).populate('user');\r\n         if (!batch) {\r\n             return res.status(400).json({\r\n                 success: true,\r\n                 message: \"Batch Does not exist\"\r\n"
+                },
+                {
+                    "date": 1673191316663,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n \r\n // Get all Batch\r\n export const getBatch = async (req, res) => {\r\n     try {\r\n-        const batch = await Batch.findById(req.params.batch_id).populate('user');\r\n+        const batch = await Batch.find(req.params.batch_id).populate('user');\r\n         if (!batch) {\r\n             return res.status(400).json({\r\n                 success: true,\r\n                 message: \"Batch Does not exist\"\r\n"
+                },
+                {
+                    "date": 1673191325060,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,9 +56,9 @@\n \r\n         res.status(200).json({\r\n             success: true,\r\n             message: \"Batch Details\",\r\n-            data: batchInfo\r\n+            data: batch\r\n         })\r\n     } catch (error) {\r\n         return res.status(500).json({\r\n             success: false,\r\n"
+                },
+                {
+                    "date": 1673191363543,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n \r\n // Get all Batch\r\n export const getBatch = async (req, res) => {\r\n     try {\r\n-        const batch = await Batch.find(req.params.batch_id).populate('user');\r\n+        const batch = await Batch.find(req.params.batch_id);\r\n         if (!batch) {\r\n             return res.status(400).json({\r\n                 success: true,\r\n                 message: \"Batch Does not exist\"\r\n"
+                },
+                {
+                    "date": 1673191372193,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,10 +51,9 @@\n                 success: true,\r\n                 message: \"Batch Does not exist\"\r\n             })\r\n         }\r\n-    \r\n-\r\n+        \r\n         res.status(200).json({\r\n             success: true,\r\n             message: \"Batch Details\",\r\n             data: batch\r\n"
+                },
+                {
+                    "date": 1673191431957,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,8 @@\n     }\r\n     \r\n }\r\n \r\n-\r\n // Get all Batch\r\n export const getBatch = async (req, res) => {\r\n     try {\r\n         const batch = await Batch.find(req.params.batch_id);\r\n@@ -51,9 +50,9 @@\n                 success: true,\r\n                 message: \"Batch Does not exist\"\r\n             })\r\n         }\r\n-        \r\n+\r\n         res.status(200).json({\r\n             success: true,\r\n             message: \"Batch Details\",\r\n             data: batch\r\n"
+                }
+            ],
+            "date": 1673177651272,
+            "name": "Commit-0",
+            "content": "import Course from \"../model/course.js\";\r\n\r\n\r\n// Add new Course\r\nexport const addCourse = async (req, res) => {\r\n    try {\r\n        const { courseName } = req.body;\r\n        if (!courseName) {\r\n            return res.status(400).json({\r\n                success: true,\r\n                message: \"Fill all the Field\"\r\n            });\r\n        }\r\n\r\n        const exist = await Course.findOne({ courseName });\r\n        if (exist) {\r\n            return res.status(400).json({\r\n                success: false,\r\n                message: \"Course already exist\"\r\n            })\r\n        }\r\n\r\n        const course = await Course.create({\r\n            courseName,\r\n        })\r\n\r\n        res.status(200).json({\r\n            success: true,\r\n            message: \"Course Added Successfully\",\r\n            data: course\r\n\r\n        })\r\n        \r\n    } catch (error) {\r\n        return res.status(500).json({\r\n            success: false,\r\n            message: error.message,\r\n        })\r\n        \r\n    }\r\n    \r\n}\r\n\r\n\r\n// Get all courses\r\n\r\nexport const getCourse = async (req, res) => {\r\n    try {\r\n        const course = await Course.find();\r\n        if (!course) {\r\n            return res.status(400).json({\r\n                success: true,\r\n                message: \"Course Does not exist\"\r\n            })\r\n        }\r\n\r\n        res.status(200).json({\r\n            success: true,\r\n            message: \"Course Details\",\r\n            data: course\r\n        })\r\n    } catch (error) {\r\n        return res.status(500).json({\r\n            success: false,\r\n            message: error.message\r\n        })\r\n        \r\n    }\r\n}\r\n\r\n"
+        }
+    ]
+}

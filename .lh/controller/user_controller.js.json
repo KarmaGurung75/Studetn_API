@@ -1,0 +1,102 @@
+{
+    "sourceFile": "controller/user_controller.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 21,
+            "patches": [
+                {
+                    "date": 1673150780207,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1673154900811,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n export const register = async (req, res) => {\r\n     try {\r\n         const { firstName, lastName, batch, course, username, password } = req.body;\r\n         \r\n-        const avatar = req.file.filename\r\n+        const avatar = req.filename\r\n         \r\n         if (!firstName || !lastName || !batch || !course || !username || !password) {\r\n             return res.status(400).json({\r\n                 success: false,\r\n"
+                },
+                {
+                    "date": 1673179111186,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,8 +42,9 @@\n             id: user._id,\r\n             firstName: user.firstName,\r\n             lastName: user.lastName,\r\n             batch: user.batch,\r\n+            \r\n             course: user.course,\r\n             username: user.username,\r\n             avatar: user.avatar\r\n         }\r\n"
+                },
+                {
+                    "date": 1673179118898,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,9 @@\n             id: user._id,\r\n             firstName: user.firstName,\r\n             lastName: user.lastName,\r\n             batch: user.batch,\r\n-            \r\n+            batchName: user.\r\n             course: user.course,\r\n             username: user.username,\r\n             avatar: user.avatar\r\n         }\r\n"
+                },
+                {
+                    "date": 1673179143963,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,8 @@\n             id: user._id,\r\n             firstName: user.firstName,\r\n             lastName: user.lastName,\r\n             batch: user.batch,\r\n-            batchName: user.\r\n             course: user.course,\r\n             username: user.username,\r\n             avatar: user.avatar\r\n         }\r\n"
+                },
+                {
+                    "date": 1673179151507,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -121,8 +121,9 @@\n             id: user._id,\r\n             firstName: user.firstName,\r\n             lastName: user.lastName,\r\n             batch: user.batch,\r\n+             batchName: user.batchName,\r\n             course: user.course,\r\n             username: user.username,\r\n             avatar: user.avatar\r\n         }\r\n"
+                },
+                {
+                    "date": 1673179156976,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -121,9 +121,9 @@\n             id: user._id,\r\n             firstName: user.firstName,\r\n             lastName: user.lastName,\r\n             batch: user.batch,\r\n-             batchName: user.batchName,\r\n+            batchName: user.batchName,\r\n             course: user.course,\r\n             username: user.username,\r\n             avatar: user.avatar\r\n         }\r\n"
+                },
+                {
+                    "date": 1673179173423,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -121,9 +121,8 @@\n             id: user._id,\r\n             firstName: user.firstName,\r\n             lastName: user.lastName,\r\n             batch: user.batch,\r\n-            batchName: user.batchName,\r\n             course: user.course,\r\n             username: user.username,\r\n             avatar: user.avatar\r\n         }\r\n"
+                },
+                {
+                    "date": 1673179241533,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -120,9 +120,9 @@\n         const userInfo = {\r\n             id: user._id,\r\n             firstName: user.firstName,\r\n             lastName: user.lastName,\r\n-            batch: user.batch,\r\n+            batch: user.batchName,\r\n             course: user.course,\r\n             username: user.username,\r\n             avatar: user.avatar\r\n         }\r\n"
+                },
+                {
+                    "date": 1673179261104,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -120,9 +120,9 @@\n         const userInfo = {\r\n             id: user._id,\r\n             firstName: user.firstName,\r\n             lastName: user.lastName,\r\n-            batch: user.batchName,\r\n+            batch: user.batch,\r\n             course: user.course,\r\n             username: user.username,\r\n             avatar: user.avatar\r\n         }\r\n"
+                },
+                {
+                    "date": 1673180174982,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -120,9 +120,9 @@\n         const userInfo = {\r\n             id: user._id,\r\n             firstName: user.firstName,\r\n             lastName: user.lastName,\r\n-            batch: user.batch,\r\n+            batch: user.,\r\n             course: user.course,\r\n             username: user.username,\r\n             avatar: user.avatar\r\n         }\r\n"
+                },
+                {
+                    "date": 1673180181096,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -120,9 +120,9 @@\n         const userInfo = {\r\n             id: user._id,\r\n             firstName: user.firstName,\r\n             lastName: user.lastName,\r\n-            batch: user.,\r\n+            batch: user.(\"course\"),\r\n             course: user.course,\r\n             username: user.username,\r\n             avatar: user.avatar\r\n         }\r\n"
+                },
+                {
+                    "date": 1673180187861,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -120,9 +120,9 @@\n         const userInfo = {\r\n             id: user._id,\r\n             firstName: user.firstName,\r\n             lastName: user.lastName,\r\n-            batch: user.(\"course\"),\r\n+            batch: user.populate(\"course\"),\r\n             course: user.course,\r\n             username: user.username,\r\n             avatar: user.avatar\r\n         }\r\n"
+                },
+                {
+                    "date": 1673180197583,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -120,9 +120,9 @@\n         const userInfo = {\r\n             id: user._id,\r\n             firstName: user.firstName,\r\n             lastName: user.lastName,\r\n-            batch: user.populate(\"course\"),\r\n+            batch: user.populate(\"batch\"),\r\n             course: user.course,\r\n             username: user.username,\r\n             avatar: user.avatar\r\n         }\r\n"
+                },
+                {
+                    "date": 1673180210591,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -120,9 +120,9 @@\n         const userInfo = {\r\n             id: user._id,\r\n             firstName: user.firstName,\r\n             lastName: user.lastName,\r\n-            batch: user.populate(\"batch\"),\r\n+            batch: user.populate(\"Batch\"),\r\n             course: user.course,\r\n             username: user.username,\r\n             avatar: user.avatar\r\n         }\r\n"
+                },
+                {
+                    "date": 1673180477595,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -120,9 +120,9 @@\n         const userInfo = {\r\n             id: user._id,\r\n             firstName: user.firstName,\r\n             lastName: user.lastName,\r\n-            batch: user.populate(\"Batch\"),\r\n+            batch: user.batch,\r\n             course: user.course,\r\n             username: user.username,\r\n             avatar: user.avatar\r\n         }\r\n"
+                },
+                {
+                    "date": 1673180677079,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -108,9 +108,9 @@\n \r\n // single Profile\r\n export const userProfile = async (req, res) => {\r\n     try {\r\n-        const user = await User_model.findById(req.user.id)\r\n+        const user = await User_model.findById(req.user.id),\r\n         if (!user) {\r\n             return res.status(400).json({\r\n                 success: false,\r\n                 message: \"User does not exist\"\r\n"
+                },
+                {
+                    "date": 1673180683322,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -108,9 +108,9 @@\n \r\n // single Profile\r\n export const userProfile = async (req, res) => {\r\n     try {\r\n-        const user = await User_model.findById(req.user.id),\r\n+        const user = await User_model.findById(req.user.id).populate\r\n         if (!user) {\r\n             return res.status(400).json({\r\n                 success: false,\r\n                 message: \"User does not exist\"\r\n"
+                },
+                {
+                    "date": 1673180693478,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -108,9 +108,9 @@\n \r\n // single Profile\r\n export const userProfile = async (req, res) => {\r\n     try {\r\n-        const user = await User_model.findById(req.user.id).populate\r\n+        const user = await User_model.findById(req.user.id).populate(\"B\")\r\n         if (!user) {\r\n             return res.status(400).json({\r\n                 success: false,\r\n                 message: \"User does not exist\"\r\n"
+                },
+                {
+                    "date": 1673180707915,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -108,9 +108,9 @@\n \r\n // single Profile\r\n export const userProfile = async (req, res) => {\r\n     try {\r\n-        const user = await User_model.findById(req.user.id).populate(\"B\")\r\n+        const user = await User_model.findById(req.user.id).populate(\"Batch\",\"\")\r\n         if (!user) {\r\n             return res.status(400).json({\r\n                 success: false,\r\n                 message: \"User does not exist\"\r\n"
+                },
+                {
+                    "date": 1673180713838,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -108,9 +108,9 @@\n \r\n // single Profile\r\n export const userProfile = async (req, res) => {\r\n     try {\r\n-        const user = await User_model.findById(req.user.id).populate(\"Batch\",\"COur\")\r\n+        const user = await User_model.findById(req.user.id).populate(\"Batch\",\"COur=\")\r\n         if (!user) {\r\n             return res.status(400).json({\r\n                 success: false,\r\n                 message: \"User does not exist\"\r\n"
+                },
+                {
+                    "date": 1673180884422,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -108,9 +108,9 @@\n \r\n // single Profile\r\n export const userProfile = async (req, res) => {\r\n     try {\r\n-        const user = await User_model.findById(req.user.id).populate(\"Batch\",)\r\n+        const user = await User_model.findById(req.user.id).populate(\"Batch\")\r\n         if (!user) {\r\n             return res.status(400).json({\r\n                 success: false,\r\n                 message: \"User does not exist\"\r\n"
+                }
+            ],
+            "date": 1673150780207,
+            "name": "Commit-0",
+            "content": "import User_model from \"../model/user_model.js\";\r\n\r\n// Register New User\r\nexport const register = async (req, res) => {\r\n    try {\r\n        const { firstName, lastName, batch, course, username, password } = req.body;\r\n        \r\n        const avatar = req.file.filename\r\n        \r\n        if (!firstName || !lastName || !batch || !course || !username || !password) {\r\n            return res.status(400).json({\r\n                success: false,\r\n                message: \"Please fill all the form\",\r\n            });\r\n        }\r\n\r\n        if (password.length < 8) {\r\n            return res.status(400).json({\r\n                success: false,\r\n                message: \"Password must be at least 8 character\"\r\n            });\r\n        }\r\n\r\n        const exist = await User_model.findOne({ username });\r\n        if (exist) {\r\n            return res.status(400).json({\r\n                success: false,\r\n                message: \"user already exist\"\r\n            })\r\n        }\r\n        const user = await User_model.create({\r\n            firstName,\r\n            lastName,\r\n            batch,\r\n            course,\r\n            username,\r\n            password,\r\n            avatar: avatar\r\n        });\r\n\r\n        const userData = {\r\n            id: user._id,\r\n            firstName: user.firstName,\r\n            lastName: user.lastName,\r\n            batch: user.batch,\r\n            course: user.course,\r\n            username: user.username,\r\n            avatar: user.avatar\r\n        }\r\n\r\n        res.status(200).json({\r\n            success: true,\r\n            message: 'Register Successfully',\r\n            data: userData,\r\n        })\r\n        \r\n    } catch (error) {\r\n        return res.status(500).json({\r\n            message: error.message,\r\n        })  \r\n    }\r\n}\r\n\r\n// Login\r\nexport const login = async (req, res) => {\r\n    try {\r\n        const { username, password } = req.body;\r\n        if (!username || !password) {\r\n            return res.status(400).json({\r\n                success: false,\r\n                message: \"Please fill all the field\"\r\n            })\r\n        }\r\n\r\n        let user = await User_model.findOne({ username }).select(\"+password\")\r\n        if (!user) {\r\n            return res.status(400).json({\r\n                success: false,\r\n                message:\"User does not exist\"\r\n            })\r\n        }\r\n\r\n        const isMatched = await user.comparePassword(password)\r\n        if (!isMatched) {\r\n            return res.status(400).json({\r\n                success: false,\r\n                message:\"Invalid credentials!\"\r\n            })\r\n        }\r\n\r\n        const token = await user.getSignedJwtToken()\r\n        res.status(200).json({\r\n            success: true,\r\n            message: \"Login successfully\",\r\n            // user,\r\n            token\r\n        })\r\n        \r\n    } catch (error) {\r\n        return res.status(500).json({\r\n            success: false,\r\n            message:error.message\r\n        })\r\n        \r\n    }\r\n}\r\n\r\n\r\n// single Profile\r\nexport const userProfile = async (req, res) => {\r\n    try {\r\n        const user = await User_model.findById(req.user.id)\r\n        if (!user) {\r\n            return res.status(400).json({\r\n                success: false,\r\n                message: \"User does not exist\"\r\n            });\r\n        }\r\n\r\n        const userInfo = {\r\n            id: user._id,\r\n            firstName: user.firstName,\r\n            lastName: user.lastName,\r\n            batch: user.batch,\r\n            course: user.course,\r\n            username: user.username,\r\n            avatar: user.avatar\r\n        }\r\n\r\n        res.status(200).json({\r\n            success: true,\r\n            message: \"User information\",\r\n            data: userInfo,\r\n        })\r\n\r\n    } catch (error) {\r\n        return res.status(500).json({\r\n            success: false,\r\n            message:error.message\r\n        })\r\n        \r\n    }\r\n}\r\n\r\n// update Profile\r\nexport const updateProfile = async (req, res) => {\r\n  try {\r\n      const { firstName, lastName, batch, course, username } = req.body;\r\n      const avatar = req.file.filename;\r\n      \r\n      const user = await User_model.findByIdAndUpdate(\r\n          req.user.id,\r\n          { firstName, lastName, batch, course, username , avatar: avatar},\r\n          { new: true, runValidators: true, useFindAndModify: false });\r\n      \r\n      const userData = {\r\n          id: user._id,\r\n          firstName: user.firstName,\r\n          lastName: user.lastName,\r\n          batch: user.batch,\r\n          course: user.course,\r\n          username: user.username,\r\n          avatar: user.avatar\r\n      };\r\n      \r\n      res.status(200).json({\r\n          success: true,\r\n          message: \"user update Successfully!\",\r\n          data: userData,\r\n      });\r\n  } catch (error) {\r\n      return res.status(500).json({\r\n          success: false,\r\n          message: error.message,\r\n      });\r\n  }\r\n};"
+        }
+    ]
+}

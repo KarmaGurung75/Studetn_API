@@ -1,0 +1,42 @@
+{
+    "sourceFile": "model/course.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 6,
+            "patches": [
+                {
+                    "date": 1673156209215,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1673156219393,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,12 @@\n \r\n+import mongoose from \"mongoose\";\r\n+\r\n+const BatchSchema = new mongoose.Schema(\r\n+    {\r\n+        batch: {\r\n+            type: Array\r\n+        }\r\n+    }\r\n+)\r\n+\r\n+export default mongoose.model(\"Batch\", BatchSchema);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1673156224560,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n \r\n import mongoose from \"mongoose\";\r\n \r\n-const BatchSchema = new mongoose.Schema(\r\n+const CourseSchema = new mongoose.Schema(\r\n     {\r\n         batch: {\r\n             type: Array\r\n         }\r\n"
+                },
+                {
+                    "date": 1673156411204,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,5 +8,5 @@\n         }\r\n     }\r\n )\r\n \r\n-export default mongoose.model(\"Batch\", BatchSchema);\n\\ No newline at end of file\n+export default mongoose.model(\"Course\", CourseSchema);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1673156462657,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import mongoose from \"mongoose\";\r\n \r\n const CourseSchema = new mongoose.Schema(\r\n     {\r\n-        batch: {\r\n+        Cou: {\r\n             type: Array\r\n         }\r\n     }\r\n )\r\n"
+                },
+                {
+                    "date": 1673156484052,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import mongoose from \"mongoose\";\r\n \r\n const CourseSchema = new mongoose.Schema(\r\n     {\r\n-        : {\r\n+        course: {\r\n             type: Array\r\n         }\r\n     }\r\n )\r\n"
+                },
+                {
+                    "date": 1673156629722,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n \r\n const CourseSchema = new mongoose.Schema(\r\n     {\r\n         courseName: {\r\n-            type: String\r\n+            type: String,\r\n         }\r\n     }\r\n )\r\n \r\n"
+                }
+            ],
+            "date": 1673156209215,
+            "name": "Commit-0",
+            "content": "\r\n"
+        }
+    ]
+}
